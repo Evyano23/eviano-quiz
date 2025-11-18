@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quick Quiz</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="bg-image"></div>
+    <div class="bg-shape shape1"></div>
+    <div class="bg-shape shape2"></div>
+    <div class="bg-shape shape3"></div>
+    <div class="bg-shape shape4"></div>
+    <div class="bg-shape shape5"></div>
+    <div class="container">
+        <div id="home"  class="flex-center flex-column">
+          <div class="top-right">
+    <a id="learn-more" class="btn small-btn">Learn More</a>
+  </div>
+            <h1>QUICK QUIZ</h1>
+            <div class="tagline">Embark on a brain-boosting adventure <br>and Become a <span>quiz</span> master!</div>
+            <div class="button-group">
+            <!--- <input type="text" id="playerName" placeholder="Enter your Name" required>-->
+            <a id="start-quiz" class="btn" >Start Quiz</a>
+            </div>
+            <div class="username-popup" id="usernamePopup">
+      <div class="popup-content">
+        <button id="cancelBtn" class="cancel-btn">&times;</button>
+        <h3>Enter Your Name</h3>
+        <input type="text" id="usernameInput" placeholder="Your Name" required>
+        <button id="confirmBtn">Continue</button>
+      </div>
+    </div>
+
+    <!-- ✅ Learn More Popup (now separate) -->
+    <div class="learnmore-popup" id="learnMorePopup">
+      <div class="popup-content">
+        <button id="closeLearnMore" class="cancel-btn">&times;</button>
+        <h3>About Quick Quiz</h3>
+        <p>
+          Quick Quiz is a fun and interactive way to test your knowledge!  
+          Each quiz is timed ⏱️, helping you think fast and improve your recall.  
+          Earn points for correct answers and see how well you do.  
+          Get ready to learn, compete, and grow your mind! 🧠 <br>
+          Passmark for quick quiz is 70% out of 100%. You will have a certificate
+          generated for you once you reach the passmark. Good luck and have fun!
+        </p>
+      </div>
+    </div>
+  <!-- Stats Row -->
+<div class="stats-row">
+  <div class="stat">
+    <span class="emoji">🎯</span>
+    <p><strong>Over 1,000</strong> players challenged their brains today!</p>
+  </div>
+  <div class="stat">
+    <span class="emoji">🧩</span>
+    <p>New quizzes added <strong>weekly</strong>.</p>
+  </div>
+</div>
+                 
+<footer>
+    <p>Challenge yourself and learn somethimg new every day,Quick quiz got u covered</p>
+</footer>
+        </div>
+       
+    </div>
+    
+    
+    </div> 
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        //save player name in local storage
+      const startBtn = document.getElementById("start-quiz");
+      const usernamePopup=document.getElementById("usernamePopup");
+      const confirmBtn = document.getElementById("confirmBtn");
+      const usernameInput = document.getElementById("usernameInput");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const learnMoreBtn = document.getElementById("learn-more");
+      const learnMorePopup = document.getElementById("learnMorePopup");
+      const closeLearnMore = document.getElementById("closeLearnMore");
+
+      startBtn.addEventListener("click",()=>{
+        usernamePopup.style.display="flex";
+      });
+
+       // --- Close username popup ---
+    cancelBtn.addEventListener("click", () => {
+    usernamePopup.style.display = "none";
+    usernameInput.value = "";
+  });
+
+      confirmBtn.addEventListener("click", ()=> {
+        const username = usernameInput.value.trim();
+        if (username === "") {
+            alert("Please enter your name first!");
+            return;
+        }
+
+        const cancelBtn = document.getElementById("cancelBtn");
+        cancelBtn.addEventListener("click",()=> {
+            usernamePopup.style.display = "none";
+            usernameInput.value ="";
+        });
+
+        localStorage.setItem("username", username);
+
+        window.location.href="game.html";
+      });
+
+      learnMoreBtn.addEventListener("click", () => {
+  learnMorePopup.style.display = "flex";
+});
+
+closeLearnMore.addEventListener("click", () => {
+  learnMorePopup.style.display = "none";
+});
+
+learnMorePopup.addEventListener("click", (e) => {
+  if (e.target === learnMorePopup) {
+    learnMorePopup.style.display = "none";
+  }
+});
+      });
+    
+    </script>
+</body>
+</html>

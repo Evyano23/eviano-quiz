@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>quick quiz-start</title>
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="game.css">
+    <style>
+        /* 🔵 Basic styling for the circular progress bar */
+        .progress-pie-chart {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          background-color: #f3f3f3;
+          position: relative;
+          margin: 10px auto;
+        }
+  
+        .ppc-progress {
+          content: "";
+          position: absolute;
+          border-radius: 50%;
+          clip: rect(0, 120px, 120px, 60px);
+          height: 120px;
+          width: 120px;
+        }
+  
+        .ppc-progress-fill {
+          content: "";
+          position: absolute;
+          border-radius: 50%;
+          clip: rect(0, 60px, 120px, 0);
+          height: 120px;
+          width: 120px;
+          background: #4caf50;
+          transform: rotate(0deg);
+          transition: transform 0.5s ease-in-out;
+        }
+  
+        .ppc-percents {
+          position: absolute;
+          border-radius: 50%;
+          height: 100px;
+          width: 100px;
+          top: 10px;
+          left: 10px;
+          background: #fff;
+          text-align: center;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: bold;
+          font-size: 20px;
+        }
+  
+        .gt-50 .ppc-progress {
+          clip: rect(auto, auto, auto, auto);
+        }
+      </style>
+</head>
+<body>
+    
+    <h2 id="lastResult"></h2>
+    <div id="quiz-header">
+                <div class="progress-container">
+                <div class="progress-pie-chart" data-percent="0">
+                    <div class="ppc-progress">
+                      <div class="ppc-progress-fill"></div>
+                    </div>
+                    <div class="ppc-percents">
+                      <div class="ppc-percents-wrapper">
+                        <span>0%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  
+            <div id="timer" style="font-size:30px; font-weight:bold; color: rgb(226, 107, 107);text-align: right;background: transparent !important;"></div>
+        </div>
+    <div class="container">
+        <div id="quiz-container" class="justify-center flex-column">
+            
+            <h2 id="question">what is the answers to this questions?</h2>
+            <div id="options-container">
+            <div class="option-container">
+                <p class="option-prefix">A</p>
+                <p class="option-text" id="option0" data-number="0">option1</p>
+            </div>
+            <div class="option-container">
+                <p class="option-prefix">B</p>
+                <p class="option-text" id="option1" data-number="1">option2</p>
+            </div>  <div class="option-container">
+                <p class="option-prefix">C</p>
+                <p class="option-text" id="option2" data-number="2">option3</p>
+            </div>
+            <div class="option-container">
+                <p class="option-prefix">D</p>
+                <p class="option-text" id="option3" data-number="3">option4</p>
+            </div>
+            </div>
+            <div class="button-container">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+            </div>
+             <div class="submit-container">
+                <button id="submitBtn">Submit Quiz</button>
+            </div>
+        </div>
+    </div>
+    <div id="closingPage" style="display: none;">
+        <h2>Finalscore</h2>
+        <button id="tryAgainBtn">Try Again</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="game.js"></script>
+    <script>
+        // ✅ Ensure the pie chart starts at 0% visually
+        $(document).ready(function() {
+          $(".ppc-progress-fill").css("transform", "rotate(0deg)");
+          $(".ppc-percents span").text("0%");
+        });
+      </script>
+</body>
+</html>

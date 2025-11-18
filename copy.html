@@ -1,0 +1,53 @@
+document.getElementById("question").textContent=q.question;
+
+//display option in container
+document.getElementById("option0").textContent = q.option0;
+document.getElementById("option1").textContent = q.option1;
+document.getElementById("option2").textContent = q.option2;
+document.getElementById("option3").textContent = q.option3;
+}
+const q= quizdata[currentQuestion];
+if (!q) {
+    console.log("No question found at index:", currentQuestion);
+    return;
+}
+
+ console.log("loading question index:", currentQuestion, q);
+ optionsContainer.style.display="block";
+ //display questions
+ questionEl.textContent = q.question;
+ 
+//display options
+optionEls.forEach((el, i)=> {
+   el.textContent = q[`option${i}`];
+   el.parentElement.classList.remove("selected");
+});
+//update progress (eg, 1/16)
+if(progressEl) {
+    progressEl.textContent = `${currentQuestion + 1}/${quizQuestions.length}`;
+}
+
+
+<script>
+    function startQUIZ() {
+        const name = document.getElementById("username").Value || "Anonymous";
+        localStorage.setItem("quizuserName", name); //save for next page
+        window.location.href ="game.html"; //move to quiz
+    }
+</script>
+
+  function savePlayerName() {
+            const playerInput = document.getElementById("playerName");
+            const name = playerInput && playerInput.value.trim() !=="" ? playerInput.value :"Anonymous";
+            localStorage.setItem("playerName", name);
+        }
+        const startBtn = document.getElementById("start-quiz");
+
+        startBtn.addEventListener("click", ()=> {
+            try{
+                savePlayerName();
+                window.location.href= "game.html";
+            }catch (err) {
+                console.log("Error in starting quiz:",err);
+            }
+        });
