@@ -493,21 +493,21 @@ questionEl.innerHTML = `
 `;
 
        const endScreen = document.querySelector(".quiz-end-screen");
+        endScreen.style.position = 'fixed';
+    endScreen.style.top = '50%';
+    endScreen.style.left = '50%';
+    endScreen.style.transform = 'translate(-50%, -50%)';
+    endScreen.style.zIndex = '1000';
+    endScreen.style.maxHeight = '90vh'; // prevent overflow on small screens
+    endScreen.style.overflowY = 'auto';
+
        endScreen.classList.add(passed ? "pass" : "fail");
-       
-// Select the share button and add functionality
-const shareBtn = document.querySelector("#shareBtn");
+ const shareBtn = document.querySelector("#shareBtn");
 shareBtn.addEventListener("click", () => {
-  const scoreText = `I scored ${percentage}% on the Quiz! 🔥 Try it yourself!`;
-
-  // Dynamic link to landing page (root)
-  const quizLink = `${window.location.origin}/`; 
-  
-  // Combine message + link
-  const shareMessage = `${scoreText}\nTry it here: ${quizLink}`;
-
-  // Open WhatsApp share
-  window.open(`https://wa.me/?text=${encodeURIComponent(shareMessage)}`);
+    const siteLink = "https://Evyano23.github.io/eviano-quiz/"; // your landing page
+    const text = `I scored ${percentage}% on the Quiz! 🔥 Try it yourself!\n\nPlay here: ${siteLink}`;
+    
+    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`);
 });
 
 

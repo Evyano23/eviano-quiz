@@ -405,4 +405,77 @@ button:active{
     #quiz-header { padding: 0 12px; top: 6px;}
     #quiz-container { padding-top: 100px;}
 }
+/* MOBILE RESPONSIVE QUIZ PAGE */
+@media (max-width: 768px) {
+  /* Quiz container and question */
+  .container {
+    width: 95%;
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  #question {
+    width: 100%;
+    font-size: 1.6rem;
+    white-space: normal;
+    line-height: 1.4;
+    padding: 10px;
+  }
+
+  /* Options */
+  .option-container {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .option-text {
+    white-space: normal;
+    font-size: 1.5rem;
+  }
+
+  /* Buttons */
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  button, #submitBtn {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 12px 0;
+  }
+
+  /* Progress bar */
+  .progress-pie-chart {
+    width: 80px;
+    height: 80px;
+  }
+
+  .ppc-percents {
+    font-size: 1.2rem;
+    width: 70px;
+    height: 70px;
+    left: 5px;
+    top: 5px;
+  }
+
+  /* Quiz-end-screen positioning */
+  .quiz-end-screen {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    width: 90%;
+    max-width: 380px;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  /* Closing page adjustments */
+  #clo
 
