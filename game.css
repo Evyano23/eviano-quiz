@@ -406,6 +406,7 @@ button:active{
     #quiz-container { padding-top: 100px;}
 }
 /* MOBILE RESPONSIVE QUIZ PAGE */
+/* MOBILE RESPONSIVE QUIZ PAGE */
 @media (max-width: 768px) {
   /* Quiz container and question */
   .container {
@@ -477,5 +478,16 @@ button:active{
   }
 
   /* Closing page adjustments */
-  #clo
+  #closingPage {
+    padding: 20px;
+  }
 
+  /* Timer and header alignment */
+  #quiz-header {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    width: 100%;
+    padding: 5px;
+  }
+}
