@@ -470,7 +470,7 @@ questionEl.innerHTML = `
     <h2 class="quiz-complete">Quiz Completed!</h2>
     
     <!-- PASS / FAIL TEXT -->
-    <h3 class="${titleClass}" style="font-size: 26px; margin-top: 18px;">
+    <h3 class="${titleClass}" style="font-size: 26px; margin-top: 15px;">
       ${passed ? "You Passed! 🏆" : "You Failed"}
     </h3>
     
@@ -493,15 +493,22 @@ questionEl.innerHTML = `
 `;
 
        const endScreen = document.querySelector(".quiz-end-screen");
-        endScreen.style.position = 'fixed';
-    endScreen.style.top = '50%';
-    endScreen.style.left = '50%';
-    endScreen.style.transform = 'translate(-50%, -50%)';
-    endScreen.style.zIndex = '1000';
-    endScreen.style.maxHeight = '90vh'; // prevent overflow on small screens
-    endScreen.style.overflowY = 'auto';
+// REMOVE ALL POSITION FIXING — LET CSS HANDLE IT
+endScreen.style.position = "";
+endScreen.style.top = "";
+endScreen.style.left = "";
+endScreen.style.transform = "";
+endScreen.style.zIndex = "";
+endScreen.style.overflowY = "";
 
-       endScreen.classList.add(passed ? "pass" : "fail");
+endScreen.classList.add(passed ? "pass" : "fail");
+// When clicking Try Again → unlock background scroll
+document.querySelector("#tryAgainBtn").addEventListener("click", () => {
+  document.body.style.overflow = "auto";
+});
+
+// lock background scrolling
+document.body.classList.add("no-scroll");
  const shareBtn = document.querySelector("#shareBtn");
 shareBtn.addEventListener("click", () => {
     const siteLink = "https://Evyano23.github.io/eviano-quiz/"; // your landing page

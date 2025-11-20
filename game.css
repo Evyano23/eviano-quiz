@@ -233,10 +233,10 @@ button:active{
 
 
 .quiz-end-screen {
-    width: 90%;
+   width: 100%;
     max-width: 480px;
-    padding: 30px 25px;
-    margin: 60px auto;
+    padding: 18px 22px;   /* reduced from 25px 30px */
+    margin: 20px auto;
 
     /* 🔥 GLASS EFFECT */
     background: rgba(255, 255, 255, 0.15);   /* transparent white */
@@ -253,6 +253,9 @@ button:active{
     text-align: center;
     animation: fadeIn 0.4s ease;
 }
+body.no-scroll{
+    overflow: hidden;
+}
 
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.96); }
@@ -260,6 +263,10 @@ button:active{
 }
 .quiz-end-screen.pass {
     border: 2px solid rgba(40, 199, 111, 0.35);
+     padding-top: 14px;          /* reduce top padding */
+    padding-bottom: 16px;       /* reduce bottom padding */
+    margin-top: 55px;          /* increase top margin */
+
     box-shadow:
         0 0 4px rgba(40, 199, 111, 0.20),
         0 0 10px rgba(40, 199, 111, 0.12),
@@ -269,6 +276,7 @@ button:active{
 
 .quiz-end-screen.fail {
     border: 2px solid rgba(250, 117, 117, 0.6);
+    padding-bottom: 18px;
     box-shadow:
         0 0 6px rgba(255, 70, 70, 0.35),
         0 0 12px rgba(255, 70, 70, 0.18),
@@ -315,179 +323,65 @@ button:active{
     font-size: 60px;
 }
 .motivation-text {
-    font-size: 1rem;
-    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 0;
+    opacity: 0.8;
     text-align: center;
     color: #363636cc;
 }
-
-
+/* BUTTON CONTAINER - horizontal & wrapped if needed */
 .results-buttons {
     display: flex;
-    flex-direction: column;
-    align-items: center;     /* centers both buttons */
-    gap: 16px;
-    margin-top: 20px;
+    flex-wrap: wrap;              /* allows buttons to wrap on small screens */
+    justify-content: center;      /* center buttons horizontally */
+    gap: 12px;                    /* slightly more breathing room */
+    margin-top: 18px;
 }
 
-
-
-/* Try Again button */
-.try-again-btn {
-    background: linear-gradient(135deg, #4a9fff, #247bff);
-    border: none;
+/* BASE BUTTON STYLE */
+.results-buttons button {
+    padding: 12px 28px;           /* proportional padding */
+    border-radius: 50px;          /* fully rounded */
+    font-size: 16px;
+    font-weight: 600;
     color: #fff;
-    padding: 14px 30px;
-    border-radius: 12px;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: 600;
-    transition: 0.3s;
-    margin-bottom: 15px;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    min-width: 140px;             /* prevents buttons from being too tiny */
 }
 
-.try-again-btn:hover {
-    background: linear-gradient(135deg, #247bff, #005fe6);
-    transform: translateY(-2px);
+/* PRIMARY BUTTON - Mint/Green (Certificate or Pass) */
+.results-buttons .cert-btn,
+.results-buttons .share-btn {
+    background: linear-gradient(135deg, #32d47a, #1fb863);
 }
 
-/* Certificate Button (only shows if passed) */
-.cert-btn {
-    background: #28c76f;
-    color: white;
-    padding: 14px 30px;
-    border-radius: 12px;
-    gap: 12px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.25s;
-
-      width: 260px;       /* nice larger width */
-    text-align: center;
-    display: block;
+.results-buttons .cert-btn:hover,
+.results-buttons .share-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    background: linear-gradient(135deg, #1fb863, #179a52);
 }
 
-.cert-btn:hover {
-    background: #22b765;
-    transform: translateY(-2px);
-}
-.share-btn {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  margin-left: 8px;
-  cursor: pointer;
-  border-radius: 6px;
-  font-size: 16px;
+/* SECONDARY BUTTON - Blue Gradient (Try Again) */
+.results-buttons .try-again-btn {
+    background: linear-gradient(135deg, #4a9fff, #1d6cff);
 }
 
-.share-btn:hover {
-  background-color: #45a049;
+.results-buttons .try-again-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+    background: linear-gradient(135deg, #1d6cff, #004fd1);
 }
 
 
-/* Enter animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+/* RESPONSIVE TWEAKS */
+@media (max-width: 480px) {
+    .results-buttons {
+        gap: 8px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .results-buttons button {
+        flex: 1 1 100%;           /* full width on tiny screens */
     }
-}
-
-@media(max-width: 640px) {
-    #quiz-header { padding: 0 12px; top: 6px;}
-    #quiz-container { padding-top: 100px;}
-}
-/* MOBILE RESPONSIVE QUIZ PAGE */
-/* MOBILE RESPONSIVE QUIZ PAGE */
-@media (max-width: 768px) {
-  /* Quiz container and question */
-  .container {
-    width: 95%;
-    max-width: 100%;
-    padding: 10px;
-  }
-
-  #question {
-    width: 100%;
-    font-size: 1.6rem;
-    white-space: normal;
-    line-height: 1.4;
-    padding: 10px;
-  }
-
-  /* Options */
-  .option-container {
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 10px;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  .option-text {
-    white-space: normal;
-    font-size: 1.5rem;
-  }
-
-  /* Buttons */
-  .button-container {
-    flex-direction: column;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-
-  button, #submitBtn {
-    width: 100%;
-    font-size: 1.5rem;
-    padding: 12px 0;
-  }
-
-  /* Progress bar */
-  .progress-pie-chart {
-    width: 80px;
-    height: 80px;
-  }
-
-  .ppc-percents {
-    font-size: 1.2rem;
-    width: 70px;
-    height: 70px;
-    left: 5px;
-    top: 5px;
-  }
-
-  /* Quiz-end-screen positioning */
-  .quiz-end-screen {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
-    width: 90%;
-    max-width: 380px;
-    padding: 20px;
-    z-index: 1000;
-  }
-
-  /* Closing page adjustments */
-  #closingPage {
-    padding: 20px;
-  }
-
-  /* Timer and header alignment */
-  #quiz-header {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    width: 100%;
-    padding: 5px;
-  }
 }

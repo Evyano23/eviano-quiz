@@ -1,0 +1,103 @@
+
+/* ======================================== */
+/* ROTATE PHONE MESSAGE & LANDSCAPE MODE CSS */
+/* ======================================== */
+
+/* Portrait: hide quiz content, show rotate message */
+@media screen and (orientation: portrait) {
+    body > *:not(.rotate-phone-message) {
+        display: none !important;
+    }
+
+    .rotate-phone-message {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: fixed;
+        inset: 0;
+        background: #f2f2f2;
+        color: #333;
+        font-size: 1.8rem;
+        font-weight: bold;
+        z-index: 9999;
+        padding: 20px;
+    }
+}
+
+/* Landscape: hide rotate message */
+@media screen and (orientation: landscape) {
+    .rotate-phone-message {
+        display: none !important;
+    }
+}
+
+/* ======================================== */
+/* MOBILE LANDSCAPE ADJUSTMENTS (both pages) */
+/* ======================================== */
+@media screen and (max-width: 800px) and (orientation: landscape) {
+
+    body, html {
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+    }
+
+    /* Landing page container */
+    .container {
+        max-width: 95% !important;
+        padding: 15px !important;
+    }
+
+    h1, .tagline {
+        font-size: 1.6rem !important;
+    }
+
+    .button-group, .btn, .small-btn {
+        font-size: 1.2rem !important;
+        padding: 10px 18px !important;
+    }
+
+    /* Game page adjustments */
+    #question, #question-container {
+        font-size: 16px !important;
+        width: 95% !important;
+        margin: 10px auto !important;
+    }
+
+    .option-container {
+        height: 55px !important;
+        font-size: 16px !important;
+        padding: 0 10px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .option-prefix {
+        width: 30px !important;
+        font-size: 20px !important;
+    }
+
+    .results-buttons {
+        flex-wrap: wrap !important;
+        gap: 10px !important;
+        justify-content: center !important;
+    }
+
+    .results-buttons button {
+        min-width: 120px !important;
+        font-size: 14px !important;
+        padding: 10px 20px !important;
+    }
+
+    .quiz-end-screen {
+        max-width: 95% !important;
+        padding: 15px 20px !important;
+        margin: 15px auto !important;
+    }
+
+    #submitBtn {
+        margin-bottom: 50px !important;
+        font-size: 14px !important;
+        padding: 8px 18px !important;
+    }
+}
