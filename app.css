@@ -125,17 +125,18 @@ h3{
     z-index: 2;
 }
 .container{
-    width:100px;
-    height: 500px;
+    width: 100%;
+    max-width: 480px; /* perfect mobile width */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 80px;
-    margin: auto;
+    margin: 0 auto;
     padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     z-index: 2;
+    position: relative;
 }
+
 .container > .myclass{
     width: 100%;
 }

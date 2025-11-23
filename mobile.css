@@ -1,132 +1,225 @@
-/* =========================================================
-   UNIVERSAL MOBILE FIX — applies to all screens under 900px
-   ========================================================= */
+/* ======================================== */
+/* MOBILE PORTRAIT RESPONSIVE (ALL UNDER 900px) */
+/* Works for both index.html and game.html */
+/* ======================================== */
 @media screen and (max-width: 900px) {
 
     html, body {
-        width: 100%;
-        min-height: 100%;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden; /* hide scrolling */
+        font-size: 12px;  /* smaller font to fit everything */
         margin: 0;
         padding: 0;
-        overflow-x: hidden;
-        font-size: 14px;
-        background: #f7f9fc;
     }
 
-    /* Main container (landing + game) */
+    .rotate-phone-message {
+        display: none !important;
+    }
+
     .container {
-        width: 92%;
-        max-width: 420px;
-        background: #fff;
-        margin: 20px auto;
-        padding: 20px 18px;
-        border-radius: 18px;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        max-width: 95% !important;
+        padding: 6px !important;
+        margin: 0 auto !important;
     }
 
-    /* Headings */
     h1 {
-        font-size: 1.9rem;
+        font-size: 1.6rem !important;
+        margin-bottom: 8px !important;
         text-align: center;
-        margin-bottom: 10px;
-        line-height: 1.2;
     }
 
     .tagline {
+        font-size: 1rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 8px !important;
         text-align: center;
-        font-size: 1.1rem;
-        margin-bottom: 18px;
-        line-height: 1.3;
     }
 
-
-    /* Buttons */
-    .btn, .small-btn, .start-btn, #submitBtn {
-        width: 100%;
-        max-width: 280px;
-        margin: 10px auto;
-        padding: 12px 16px;
-        font-size: 1rem;
-        border-radius: 10px;
+    .button-group, .btn, .small-btn {
+        font-size: 0.9rem !important;
+        padding: 6px 10px !important;
+        width: 80% !important;
+        max-width: 200px;
+        margin: 4px auto !important;
         display: block;
+        text-align: center;
     }
 
     .top-right {
-        top: 12px !important;
-        right: 12px !important;
+        top: 4px !important;
+        right: 4px !important;
     }
 
-    /* ================================
-       GAME PAGE
-       ================================ */
-
-    #question-container {
-        width: 100%;
-        margin: 12px auto;
-        padding: 16px 12px;
-        border-radius: 14px;
-        font-size: 1rem;
+    footer {
+        font-size: 10px !important;
+        padding: 4px 6px !important;
+        text-align: center;
     }
 
-    #question {
-        font-size: 1.1rem !important;
-        line-height: 1.35;
-    }
-
-    .option-container {
-        height: auto;
-        min-height: 52px;
-        padding: 10px 12px;
-        margin-bottom: 10px;
-        font-size: 1rem;
-        border-radius: 12px;
-        display: flex;
+    .stats-row {
+        flex-direction: column !important;
+        gap: 6px !important;
+        font-size: 10px !important;
         align-items: center;
     }
 
-    .option-prefix {
-        width: 28px;
-        font-size: 1.2rem;
+    .stat {
+        width: 85% !important;
+        padding: 6px !important;
+        text-align: center;
     }
 
-    /* Results */
+    #quiz-header {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 4px 8px !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    #timer {
+        font-size: 16px !important;
+    }
+
+    .progress-pie-chart {
+        width: 60px !important;
+        height: 60px !important;
+        margin: 6px auto !important;
+    }
+
+    .ppc-percents {
+        width: 50px !important;
+        height: 50px !important;
+        font-size: 12px !important;
+        top: 5px !important;
+        left: 5px !important;
+    }
+
+    #question, #question-container {
+        font-size: 14px !important;
+        width: 90% !important;
+        padding: 8px !important;
+        line-height: 1.2 !important;
+        white-space: normal;
+        margin: 8px auto !important;
+        text-align: center;
+    }
+
+    .option-container {
+        width: 90% !important;
+        min-height: 40px !important;
+        font-size: 12px !important;
+        padding: 4px 6px !important;
+        margin-bottom: 4px !important;
+    }
+
+    .option-prefix {
+        width: 24px !important;
+        font-size: 14px !important;
+        padding: 8px !important;
+        margin-right: 4px;
+    }
+
+    .option-text {
+        font-size: 12px !important;
+        padding: 6px !important;
+    }
+
+    .button-container {
+        flex-direction: column !important;
+        gap: 4px !important;
+        margin-top: 8px !important;
+    }
+
+    .button-container button {
+        width: 80% !important;
+        padding: 6px !important;
+        font-size: 12px !important;
+        margin-bottom: 6px !important;
+    }
+
+    #submitBtn {
+        width: 80% !important;
+        padding: 6px !important;
+        font-size: 12px !important;
+        margin-bottom: 10px !important;
+    }
+
     .quiz-end-screen {
-        width: 92%;
-        margin: 20px auto;
-        padding: 20px 16px;
-        border-radius: 18px;
+        max-width: 90% !important;
+        padding: 8px !important;
+        margin: 10px auto !important;
+        font-size: 12px !important;
     }
 
     .results-buttons {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 6px !important;
+        margin-top: 6px !important;
     }
 
     .results-buttons button {
-        width: 100%;
-        max-width: 260px;
-        padding: 12px 16px;
-        font-size: 1rem;
+        font-size: 12px !important;
+        min-width: 100px !important;
+        padding: 6px 10px !important;
     }
 
-    /* Stats */
-    .stats-row {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
+    .bg-image {
+        width: 100% !important;
+        height: auto !important;
+        max-height: 100vh !important;
+        object-fit: cover;
     }
 
-    .stat {
-        width: 100%;
-        padding: 12px;
-        border-radius: 12px;
-    }
-
-    /* background images/shapes */
-    .bg-image,
     .bg-shape {
-        display: none
-    };
-    }   
+        transform: scale(0.35) !important;
+        transform-origin: center;
+    }
+
+    body::before {
+        background-color: rgba(246, 247, 248, 0.1) !important;
+    }
+
+    .popup-content {
+        max-width: 85% !important;
+        padding: 8px !important;
+        margin: 0 auto !important;
+        font-size: 12px !important;
+    }
+
+    #usernameInput {
+        width: 85% !important;
+        font-size: 12px !important;
+        padding: 6px !important;
+        margin: 6px 0 !important;
+    }
+
+    /* ======================================== */
+    /* RESPONSIVE CIRCULAR PROGRESS & TIMER */
+    /* ======================================== */
+    .progress-pie-chart {
+        width: 18vw !important;
+        height: 18vw !important;
+        margin: 4px auto !important;
+    }
+
+    .ppc-progress, .ppc-progress-fill {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .ppc-percents {
+        width: 14vw !important;
+        height: 14vw !important;
+        font-size: 4vw !important;
+        top: 2vw !important;
+        left: 2vw !important;
+    }
+
+    #timer {
+        font-size: 4vw !important;
+    }
+}
