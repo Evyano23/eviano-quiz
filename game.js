@@ -348,12 +348,26 @@ if (nextBtn) {
   // Reached the last question
   nextBtn.style.display = "none"; // remove Next since we're at the end
    // ⭐ AUTO-SCROLL UP TO SHOW SUBMIT BUTTON CLEARLY
-            setTimeout(() => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: "smooth"
-                });
-            }, 200);
+           // ⭐ AUTO-SCROLL TO SUBMIT BUTTON CLEARLY
+setTimeout(() => {
+    const submitBtn = document.getElementById("submitBtn");
+    if(submitBtn){
+        submitBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+        console.log("Scrolled to submit button");
+    } else {
+        console.warn("Submit button not found for scrolling");
+    }
+}, 100); // small delay to let DOM render
+// ⭐ AUTO-SCROLL TO SUBMIT BUTTON CLEARLY
+setTimeout(() => {
+    const submitBtn = document.getElementById("submitBtn");
+    if(submitBtn){
+        submitBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+        console.log("Scrolled to submit button");
+    } else {
+        console.warn("Submit button not found for scrolling");
+    }
+}, 100); // small delay to let DOM render
 }
     });
 }

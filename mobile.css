@@ -238,3 +238,8 @@ button {
         font-size: 4vw !important;
     }
 }
+/* Allow scrolling inside game page */
+body.game-page {
+    overflow-y: auto !important;
+}
+
