@@ -344,10 +344,17 @@ if (nextBtn) {
   currentQuestion++;
   loadQuestions();
 } else {
+    console.log("final question reached. showing submit");
   // Reached the last question
   nextBtn.style.display = "none"; // remove Next since we're at the end
+   // ⭐ AUTO-SCROLL UP TO SHOW SUBMIT BUTTON CLEARLY
+            setTimeout(() => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+            }, 200);
 }
-
     });
 }
 

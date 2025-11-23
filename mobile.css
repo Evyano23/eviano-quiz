@@ -4,24 +4,39 @@
 /* ======================================== */
 @media screen and (max-width: 900px) {
 
-    html, body {
-        width: 100vw;
-        height: 100vh;
-        overflow: hidden; /* hide scrolling */
-        font-size: 12px;  /* smaller font to fit everything */
-        margin: 0;
-        padding: 0;
-    }
+   /* UNIVERSAL MOBILE SCALE FIX */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* allow vertical scrolling, prevent side-scroll */
+    font-size: 12px;
+    -webkit-text-size-adjust: 100%;
+}
+/* STEP 3 — scale down everything smoothly */
+.quiz-screen,
+.pass-screen,
+.fail-screen,
+.options,
+button {
+    transform-origin: top center;
+    scale: 0.92; /* you can change to 0.85 for smaller view */
+}
 
     .rotate-phone-message {
         display: none !important;
     }
 
-    .container {
-        max-width: 95% !important;
-        padding: 6px !important;
-        margin: 0 auto !important;
-    }
+   /* Force main quiz container to fit ANY phone screen */
+.container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 10px !important;
+    margin: 0 auto !important;
+    box-sizing: border-box;
+}
 
     h1 {
         font-size: 1.6rem !important;
